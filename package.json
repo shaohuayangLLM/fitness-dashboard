@@ -1,0 +1,12 @@
+{
+  "name": "fitness-dashboard",
+  "version": "1.0.0",
+  "description": "个人运动数据看板",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "deploy": "vercel --prod"
+  },
+  "keywords": ["fitness", "running", "dashboard"],
+  "author": "shaohuayangLLM",
+  "license": "MIT"
+}

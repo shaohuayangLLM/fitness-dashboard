@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运动数据 - 杨绍华</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .records-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .records-section h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .records-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .record-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .record-item:hover {
+            transform: translateX(10px);
+            background: #f0f0f0;
+        }
+
+        .record-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .record-date {
+            font-size: 0.875rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .record-type {
+            font-size: 0.875rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .record-distance {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .record-details {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            color: #666;
+            flex-wrap: wrap;
+        }
+
+        .record-details span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+            opacity: 0.8;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid white;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .stat-card {
+                padding: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏃 运动数据</h1>
+            <p>杨绍华的跑步记录追踪</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🏃</div>
+                <div class="stat-number" id="total-runs">-</div>
+                <div class="stat-label">总跑步次数</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">📍</div>
+                <div class="stat-number" id="total-distance">-</div>
+                <div class="stat-label">总距离 (公里)</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">⏱️</div>
+                <div class="stat-number" id="total-duration">-</div>
+                <div class="stat-label">总时长</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🔥</div>
+                <div class="stat-number" id="total-calories">-</div>
+                <div class="stat-label">消耗卡路里 (千卡)</div>
+            </div>
+        </div>
+
+        <div class="records-section">
+            <h2>最近跑步记录</h2>
+            <div id="records-list" class="records-list">
+                <div class="loading">加载中...</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📧 数据来源于小米运动健康 | <a href="https://ainside.cn">返回主页</a></p>
+        </div>
+    </div>
+
+    <script>
+        async function loadFitnessData() {
+            try {
+                // 加载统计数据
+                const statsResponse = await fetch('content/fitness/fitness-stats.json');
+                const stats = await statsResponse.json();
+
+                // 更新统计卡片
+                document.getElementById('total-runs').textContent = stats.total_runs.toLocaleString();
+                document.getElementById('total-distance').textContent = stats.total_distance.toLocaleString();
+                document.getElementById('total-duration').textContent = stats.total_duration;
+                document.getElementById('total-calories').textContent = stats.total_calories.toLocaleString();
+
+                // 加载跑步记录
+                const recordsResponse = await fetch('content/fitness/running-records.json');
+                const records = await recordsResponse.json();
+
+                // 渲染最近20条记录
+                const recordsList = document.getElementById('records-list');
+                recordsList.innerHTML = records.slice(0, 20).map(record => {
+                    const typeLabel = record.type === 'outdoor' ? '🌳 户外跑' : '🏠 室内跑';
+                    const heartRate = record.avg_heart_rate ? `<span>❤️ ${record.avg_heart_rate} bpm</span>` : '';
+
+                    return `
+                        <div class="record-item">
+                            <div class="record-header">
+                                <div>
+                                    <span class="record-date">${record.date}</span>
+                                    <span class="record-type" style="margin-left: 1rem">${typeLabel}</span>
+                                </div>
+                                <span class="record-distance">${record.distance} 公里</span>
+                            </div>
+                            <div class="record-details">
+                                <span>⏱️ ${record.duration}</span>
+                                <span>⚡ ${record.pace}/km</span>
+                                ${heartRate}
+                                <span>🔥 ${record.calories} kcal</span>
+                                <span>👣 ${record.steps} 步</span>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                console.log('Fitness data loaded successfully!');
+            } catch (error) {
+                console.error('Error loading fitness data:', error);
+                document.getElementById('records-list').innerHTML = '<div class="loading">数据加载失败</div>';
+            }
+        }
+
+        // 页面加载后执行
+        loadFitnessData();
+    </script>
+</body>
+</html>

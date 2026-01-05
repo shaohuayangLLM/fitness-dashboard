@@ -7,3 +7,12 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# 原始数据文件（不需要提交）
+*数据/
+*.csv
+
+# 备份文件
+backups/
+*.backup
+*.bak

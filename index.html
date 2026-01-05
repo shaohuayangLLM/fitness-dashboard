@@ -359,7 +359,7 @@
         async function loadFitnessData() {
             try {
                 // 加载统计数据
-                const statsResponse = await fetch('content/fitness/fitness-stats.json');
+                const statsResponse = await fetch('data/fitness-stats.json');
                 const stats = await statsResponse.json();
 
                 // 更新统计卡片
@@ -369,7 +369,7 @@
                 document.getElementById('total-calories').textContent = stats.total_calories.toLocaleString();
 
                 // 加载跑步记录
-                const recordsResponse = await fetch('content/fitness/running-records.json');
+                const recordsResponse = await fetch('data/running-records.json');
                 const records = await recordsResponse.json();
 
                 // 渲染最近20条记录

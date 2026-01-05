@@ -244,7 +244,7 @@ class FitnessCharts {
     }
 
     async loadRecords() {
-        const response = await fetch('content/fitness/running-records.json');
+        const response = await fetch('data/running-records.json');
         return await response.json();
     }
 }

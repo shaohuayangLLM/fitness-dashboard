@@ -1,0 +1,165 @@
+{
+  "total_runs": 311,
+  "total_distance": 1710.44,
+  "total_duration": "164:48:48",
+  "total_duration_hours": 164.8,
+  "total_calories": 85604,
+  "total_steps": 1820314,
+  "avg_pace": "0'03\"",
+  "longest_run": {
+    "date": "2024-11-17",
+    "distance": 12.03
+  },
+  "fastest_pace": {
+    "date": "2021-09-13",
+    "pace": "0'02\"",
+    "distance": 0.07
+  },
+  "monthly_stats": {
+    "2026-01": {
+      "count": 1,
+      "distance": 5.02,
+      "calories": 217
+    },
+    "2025-12": {
+      "count": 16,
+      "distance": 84.57999999999997,
+      "calories": 3961
+    },
+    "2025-11": {
+      "count": 16,
+      "distance": 86.61999999999999,
+      "calories": 4035
+    },
+    "2025-10": {
+      "count": 16,
+      "distance": 80.39999999999999,
+      "calories": 3977
+    },
+    "2025-09": {
+      "count": 21,
+      "distance": 102.27999999999999,
+      "calories": 4952
+    },
+    "2025-08": {
+      "count": 12,
+      "distance": 62.699999999999996,
+      "calories": 3174
+    },
+    "2025-07": {
+      "count": 19,
+      "distance": 100.22999999999998,
+      "calories": 5094
+    },
+    "2025-06": {
+      "count": 18,
+      "distance": 100.31,
+      "calories": 4945
+    },
+    "2025-05": {
+      "count": 15,
+      "distance": 87.91,
+      "calories": 3832
+    },
+    "2025-04": {
+      "count": 19,
+      "distance": 109.94000000000001,
+      "calories": 4811
+    },
+    "2025-03": {
+      "count": 20,
+      "distance": 122.53000000000002,
+      "calories": 5438
+    },
+    "2025-02": {
+      "count": 17,
+      "distance": 101.18,
+      "calories": 4450
+    },
+    "2025-01": {
+      "count": 17,
+      "distance": 100.14999999999998,
+      "calories": 4608
+    },
+    "2024-12": {
+      "count": 18,
+      "distance": 123.61,
+      "calories": 5726
+    },
+    "2024-11": {
+      "count": 16,
+      "distance": 110.31,
+      "calories": 5498
+    },
+    "2024-10": {
+      "count": 18,
+      "distance": 107.11999999999999,
+      "calories": 5376
+    },
+    "2024-09": {
+      "count": 19,
+      "distance": 115.23999999999998,
+      "calories": 6946
+    },
+    "2024-08": {
+      "count": 21,
+      "distance": 101.66999999999999,
+      "calories": 7860
+    },
+    "2024-07": {
+      "count": 2,
+      "distance": 7.63,
+      "calories": 668
+    },
+    "2023-11": {
+      "count": 1,
+      "distance": 0.1,
+      "calories": 4
+    },
+    "2023-10": {
+      "count": 1,
+      "distance": 0.05,
+      "calories": 1
+    },
+    "2023-06": {
+      "count": 1,
+      "distance": 0.07,
+      "calories": 1
+    },
+    "2023-05": {
+      "count": 1,
+      "distance": 0.09,
+      "calories": 4
+    },
+    "2021-11": {
+      "count": 1,
+      "distance": 0.16,
+      "calories": 8
+    },
+    "2021-09": {
+      "count": 1,
+      "distance": 0.07,
+      "calories": 2
+    },
+    "2021-08": {
+      "count": 1,
+      "distance": 0.1,
+      "calories": 3
+    },
+    "2021-07": {
+      "count": 1,
+      "distance": 0.1,
+      "calories": 3
+    },
+    "2021-06": {
+      "count": 1,
+      "distance": 0.12,
+      "calories": 4
+    },
+    "2021-05": {
+      "count": 1,
+      "distance": 0.15,
+      "calories": 6
+    }
+  }
+}
